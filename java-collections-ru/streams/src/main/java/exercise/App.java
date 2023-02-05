@@ -9,8 +9,14 @@ class App {
     public static int getCountOfFreeEmails(List<String> emails) {
 
         return (int) emails.stream()
-                .filter(mail -> mail.contains("@yandex.ru") || mail.contains("@gmail.com") || mail.contains("@hotmail.com"))
+                .filter(email -> freeEmail(email))
                 .count();
+    }
+
+    private static boolean freeEmail(String email) {
+
+        boolean result = email.contains("@yandex.ru") || email.contains("@gmail.com") || email.contains("@hotmail.com");
+        return result;
     }
 }
 // END
