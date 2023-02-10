@@ -9,6 +9,7 @@ public class InMemoryKV implements KeyValueStorage{
 
     public InMemoryKV(Map<String, String> data) {
         base.putAll(data);
+        //this.base = base;
     }
 
     public String get(String key, String defaultValue) {
