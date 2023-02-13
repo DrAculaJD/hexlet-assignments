@@ -9,17 +9,11 @@ import java.util.stream.Collectors;
 
 // BEGIN
 class App {
-    public static KeyValueStorage swapKeyValue(KeyValueStorage base) {
-        KeyValueStorage result = base;
-
-        for (Map.Entry<String, String> str : base.toMap().entrySet()) {
-            String key = str.getKey();
-            String value = str.getValue();
-            System.out.println(key + " " + value);
-            result.set(value, key);
-            result.unset(key);
-        }
-        return result;
+    public static void swapKeyValue(KeyValueStorage storage) {
+        Map<String, String> data = storage.toMap();
+        Set<Entry<String, String>> entries = data.entrySet();
+        entries.forEach(entry -> storage.unset(entry.getKey()));
+        entries.forEach(entry -> storage.set(entry.getValue(), entry.getKey()));
     }
 }
 // END
