@@ -29,7 +29,7 @@ public class TcpConnection {
     }
 
     public void disconnect() {
-
+        this.state.disconnect();
     }
 
     public void setState(Connection state) {
